@@ -3,6 +3,8 @@ terraform.*
 components/
 .semverbot.toml
 vendor/
+.envrc
+.env
 
 .idea
 !examples/*.tfvars
