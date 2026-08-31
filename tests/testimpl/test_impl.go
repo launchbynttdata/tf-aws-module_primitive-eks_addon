@@ -19,12 +19,12 @@ import (
 func TestComposableComplete(t *testing.T, ctx testTypes.TestContext) {
 	terraformOptions := ctx.TerratestTerraformOptions()
 
-	addonArn := strings.TrimSpace(terraform.Output(t, terraformOptions, "addon_arn"))
-	addonID := strings.TrimSpace(terraform.Output(t, terraformOptions, "addon_id"))
-	createdAt := strings.TrimSpace(terraform.Output(t, terraformOptions, "addon_created_at"))
-	modifiedAt := strings.TrimSpace(terraform.Output(t, terraformOptions, "addon_modified_at"))
-	addonVersion := normalizeTerraformStringOutput(terraform.Output(t, terraformOptions, "addon_version"))
-	tagsAll := terraform.OutputMap(t, terraformOptions, "addon_tags_all")
+	addonArn := strings.TrimSpace(terraform.OutputContext(t, context.Background(), terraformOptions, "addon_arn"))
+	addonID := strings.TrimSpace(terraform.OutputContext(t, context.Background(), terraformOptions, "addon_id"))
+	createdAt := strings.TrimSpace(terraform.OutputContext(t, context.Background(), terraformOptions, "addon_created_at"))
+	modifiedAt := strings.TrimSpace(terraform.OutputContext(t, context.Background(), terraformOptions, "addon_modified_at"))
+	addonVersion := normalizeTerraformStringOutput(terraform.OutputContext(t, context.Background(), terraformOptions, "addon_version"))
+	tagsAll := terraform.OutputMapContext(t, context.Background(), terraformOptions, "addon_tags_all")
 
 	clusterName, addonName := parseAddonID(t, addonID)
 	region := extractRegionFromArn(t, addonArn)
