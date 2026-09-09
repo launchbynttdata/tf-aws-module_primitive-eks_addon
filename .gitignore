@@ -1,10 +1,10 @@
+.DS_Store
+Thumbs.db
+
 terraform.*
 .repo/
 components/
 .semverbot.toml
-vendor/
-.envrc
-.env
 
 .idea
 !examples/*.tfvars
@@ -24,9 +24,6 @@ vendor/
 # .tfstate files
 *.tfstate
 *.tfstate.*
-*.tfplan
-tfplan.*
-tfplan
 
 # Crash log files
 crash.log
